@@ -9,8 +9,7 @@
 
 void module(stack_t **stack, unsigned int ln)
 {
-	int remainder;
-	stack_t *tmp;
+	int result;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
@@ -26,9 +25,31 @@ void module(stack_t **stack, unsigned int ln)
 		exit(EXIT_FAILURE);
 	}
 
-	tmp = *stack;
-	*stack = (*stack)->next;
-	remainder = (*stack)->n % tmp->n;
-	(*stack)->n = remainder;
-	free(tmp);
+	result = ((*stack)->next->n) % ((*stack)->n);
+	pop(stack, ln);
+	(*stack)->n = result;
 }
+
+/*
+void mod(stack_t **stack, unsigned int line_cnt)
+{
+	int result;
+
+	if (!stack || !*stack || !((*stack)->next))
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_cnt);
+		exit(EXIT_FAILURE);
+		return;
+	}
+	if (((*stack)->n) == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_cnt);
+		exit(EXIT_FAILURE);
+		return;
+	}
+
+	result = ((*stack)->next->n) % ((*stack)->n);
+	pop(stack, line_cnt);
+	(*stack)->n = result;
+} 
+*/
