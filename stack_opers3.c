@@ -7,14 +7,14 @@
  * @line_number: the line number in monty file
  */
 
-void _mul(stack_t **stack, unsigned int line_number)
+void multiply(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
-		free_dllist(*stack);
+		free_db_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -31,7 +31,7 @@ void _mul(stack_t **stack, unsigned int line_number)
  * @line_number: the line number in monty file
  */
 
-void _mod(stack_t **stack, unsigned int line_number)
+void module(stack_t **stack, unsigned int line_number)
 {
 	int remainder;
 	stack_t *temp;
@@ -39,14 +39,14 @@ void _mod(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
-		free_dllist(*stack);
+		free_db_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 
 	if ((*stack)->n  == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
-		free_dllist(*stack);
+		free_db_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -66,7 +66,7 @@ void _mod(stack_t **stack, unsigned int line_number)
  * @line_number: the line number in monty file
  */
 
-void _pstr(stack_t **stack, unsigned int line_number)
+void put_str(stack_t **stack, unsigned int line_number)
 {
 	int *ptr;
 	(void)line_number;

@@ -25,11 +25,11 @@ void execute(FILE *file_d)
 			continue;
 		}
 
-		get_opcode_func(&stack, line_number, opc_token);
+		get_opcode(&stack, line_number, opc_token);
 		line_number++;
 	}
 
-	free_dllist(stack);
+	free_db_list(stack);
 	free(lineptr);
 	fclose(file_d);
 }

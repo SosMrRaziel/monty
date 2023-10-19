@@ -8,7 +8,7 @@
  */
 
 
-void _pchar(STACK_NODE_T **stack, unsigned int line_number)
+void p_char(STACK_NODE_T **stack, unsigned int line_number)
 {
 	int c;
 
@@ -22,7 +22,7 @@ void _pchar(STACK_NODE_T **stack, unsigned int line_number)
 	if (c < 0 || c > 127)
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
-		free_dllist(*stack);
+		free_db_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 

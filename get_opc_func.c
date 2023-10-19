@@ -8,22 +8,22 @@
  * @opc: the opcode in the file
  */
 
-void get_opcode_func(stack_t **stack, unsigned int line_number, char *opc)
+void get_opcode(stack_t **stack, unsigned int line_number, char *opc)
 {
 	instruction_t operations[] = {
 		{"push", push},
-		{"pall", _pall},
+		{"pall", pall},
 		{"pint", pint},
-		{"pop", _pop},
-		{"swap", _swap},
-		{"add", _add},
-		{"nop", _nop},
-		{"sub", _sub},
-		{"div", _div},
-		{"mul", _mul},
-		{"mod", _mod},
-		{"pchar", _pchar},
-		{"pstr", _pstr},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
+		{"sub", sub},
+		{"div", divide},
+		{"mul", multiply},
+		{"mod", module},
+		{"pchar", p_char},
+		{"pstr", put_str},
 		{NULL, NULL}
 	};
 
@@ -40,6 +40,6 @@ void get_opcode_func(stack_t **stack, unsigned int line_number, char *opc)
 	}
 
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opc);
-	free_dllist(*stack);
+	free_db_list(*stack);
 	exit(EXIT_FAILURE);
 }

@@ -10,7 +10,7 @@
  * @line_number: the line number in monty file
  */
 
-void _pop(stack_t **stack, unsigned int line_number)
+void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 

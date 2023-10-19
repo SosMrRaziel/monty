@@ -16,7 +16,7 @@ void push(stack_t **stack, unsigned int line_number)
 	if (arg_token == NULL)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		free_dllist(*stack);
+		free_db_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 
