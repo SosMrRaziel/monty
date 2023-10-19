@@ -1,43 +1,33 @@
 #include "monty.h"
 
-
-
-
-
 /**
- * main: entry point
+ * main - Entry point
  *
- * Return: nothing
+ * Description: create an interpreter for Monty files
+ * @ac: number of arguments
+ * @av: a pointer to array
+ * Return: 0 (Success)
  */
-int main(int argc, char **argv)
+
+int main(int ac, char *av[])
 {
-	FILE *file; /*File that wee neeed to read*/
-	size_t buf_len = 0; /*Lenght of the buffer*/
-	char *buffer = NULL; /*to store each line of the file*/
-	char *str = NULL; /*to save the argument*/
-	stack_t *stack = NULL;/*The double linked list*/
-	unsigned int line_cnt = 0; /*Line counter*/
+	FILE *fd;
+	char *m_file = av[1];
 
-	if (argc != 2)
-		error_usage();
-
-	file = fopen(argv[1], "r");
-
-	if (!file)
-		file_error(argv[1]);
-
-	while (getline(&buffer, &buf_len, file) != -1)
+	if (ac != 2)
 	{
-		if(*buffer == '\n')/*If the line onl contains a new line char, ignore it*/
-		{
-			line_cnt++;
-			continue;
-		}
-
-		line_cnt++;
-		str = strtok(buffer, " \t\n");
-		op_code(&stack, str, line_cnt);
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
 	}
-	fclose(file);
-	exit(EXIT_SUCCESS);
+
+	fd = fopen(m_file, "r");
+	if (fd == NULL)
+	{
+		fprintf(stderr, "Error: can't open file %s\n", av[1]);
+		return (EXIT_FAILURE);
+	}
+
+	execute(fd);
+
+	return (0);
 }
