@@ -2,7 +2,12 @@
 #define MONTY_H
 
 #define _GNU_SOURCE
+<<<<<<< HEAD
 #define STACK_NODE_T stack_t
+=======
+
+#include <stddef.h> 
+>>>>>>> fati
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -39,6 +44,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+<<<<<<< HEAD
 void push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
@@ -57,3 +63,12 @@ void get_opcode_func(stack_t **stack, unsigned int line_number, char *opc);
 void free_dllist(stack_t *stack);
 
 #endif
+=======
+void execute_func(FILE *my_file);
+void get_oper(stack_t **stack, unsigned int line_number, char *my_op);
+void _push(stack_t **stack, unsigned int line_number);
+void _pall(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t *stack);
+
+#endif
+>>>>>>> fati
