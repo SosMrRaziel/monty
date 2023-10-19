@@ -69,3 +69,42 @@ void _pop(stack_t **stack, unsigned int line_number)
 
 	free(tmp);
 }
+
+void _swap(stack_t **stack, unsigned int line_number)
+{
+	int tmp;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
+
+	tmp = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = tmp;
+}
+
+void _add(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+	int add = 0;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
+	tmp = (*stack)->next;
+	add = (*stack)->n + tmp->n;
+	tmp->n = add;
+	_pop(stack,line_number);
+}
+
+void _nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
