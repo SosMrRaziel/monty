@@ -74,21 +74,16 @@ void nop(stack_t **stack, unsigned int ln)
 void sub(stack_t **stack, unsigned int ln)
 {
 	int result;
-	stack_t *second;
 
-	if (*stack == NULL || (*stack)->next == NULL)
+	if (!stack || !*stack || !((*stack)->next))
 	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", ln);
-		free_db_list(*stack);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
 
-	second = (*stack)->next;
-	result = second->n - (*stack)->n;
-	second->n = result;
-	second->prev = NULL;
-	free(*stack);
-	*stack = second;
+	result = ((*stack)->next->n) - ((*stack)->n);
+	pop(stack, ln);/*For top node*/
+	(*stack)->n = result;
 }
 
 
