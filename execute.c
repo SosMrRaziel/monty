@@ -33,3 +33,5 @@ void execute(FILE *file_d)
 	free(lineptr);
 	fclose(file_d);
 }
+
+
