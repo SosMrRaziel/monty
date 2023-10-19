@@ -32,8 +32,12 @@ void _pchar(stack_t **stack, unsigned int line_number)
 */
 
 
-
-
+/**
+ * _pchar - prints the char at the top of the stack
+ *
+ * @stack: a double pointer to the top of the stack
+ * @ln: the line number in monty file
+ */
 
 
 void p_char(STACK_NODE_T **stack, unsigned int ln)
