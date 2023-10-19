@@ -7,6 +7,7 @@
  * @ln: the line number in monty file
  */
 
+
 void pall(stack_t **stack, unsigned int ln)
 {
 	stack_t *temp = *stack;
