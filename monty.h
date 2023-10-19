@@ -2,7 +2,7 @@
 #define MONTY_H
 
 #define _GNU_SOURCE
-#define STACK_NODE_T stack_t
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -53,7 +53,7 @@ void multiply(stack_t **stack, unsigned int ln);
 void module(stack_t **stack, unsigned int ln);
 void p_char(stack_t **stack, unsigned int ln);
 void put_str(stack_t **stack, unsigned int ln);
-void execute(FILE *file_d);
+void execute_func(FILE *my_file);
 void get_opcode(stack_t **stack, unsigned int ln, char *opc);
 void free_db_list(stack_t *stack);
 

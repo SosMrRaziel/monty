@@ -1,8 +1,8 @@
 #include "monty.h"
 
-
 /**
- * divide - Divides the second element of the stack by the top element
+ * divide - divides the second top element of the stack
+ * by the top element of the stack.
  * @stack: The stack
  * @ln: The line number
  *
@@ -38,4 +38,3 @@ void divide(stack_t **stack, unsigned int ln)
 	(*stack)->prev = tmp->prev;
 	free(tmp);
 }
-

@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * get_opcode_func - get the corresponding opcode
+ * get_opcode - get the corresponding opcode
  *
  * @stack: a double pointer to the top of stack
  * @ln: the line number in monty file

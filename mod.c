@@ -1,9 +1,8 @@
 #include "monty.h"
 
-
 /**
- * _mod - calcultes the remainder of division
- *
+ * module - computes the rest of the division of the second top element
+ * of the stack by the top element of the stack.
  * @stack: a double pointer to the top of stack
  * @ln: the line number in monty file
  */

@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * _pall - prints all the elements of the stack
+ * pall - prints all the elements of the stack
  *
  * @stack: a double pointer to the top of stack
  * @ln: the line number in monty file
