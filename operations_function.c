@@ -27,14 +27,9 @@ void get_oper(stack_t **stack, unsigned int line_number, char *my_op)
         i++;
     }
 
-    while (oper[i].op_code)
-    {
-    if (my_op != oper[i].op_code)
-    {
         fprintf(stderr, "L%u: unknown instruction %s\n", line_number, my_op);
         free_stack(*stack);
         exit(EXIT_FAILURE);
 }
-    }
-    }
+
     
