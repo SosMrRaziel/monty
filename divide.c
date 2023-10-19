@@ -2,10 +2,11 @@
 
 
 /**
- * _div - divides the second top element of the stack by the top element
+ * divide - Divides the second element of the stack by the top element
+ * @stack: The stack
+ * @ln: The line number
  *
- * @stack: a double pointer to the top of the stack
- * @ln: the line number in monty file
+ * Return: Nothing
  */
 
 void divide(stack_t **stack, unsigned int ln)
