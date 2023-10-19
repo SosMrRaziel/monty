@@ -54,7 +54,7 @@ void module(stack_t **stack, unsigned int ln);
 void p_char(stack_t **stack, unsigned int ln);
 void put_str(stack_t **stack, unsigned int ln);
 void execute_func(FILE *my_file);
-void get_opcode(stack_t **stack, unsigned int ln, char *opc);
+void get_oper(stack_t **stack, unsigned int ln, char *my_op);
 void free_db_list(stack_t *stack);
 
 #endif

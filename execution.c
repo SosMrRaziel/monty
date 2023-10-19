@@ -25,7 +25,7 @@ void execute_func(FILE *my_file)
 			continue;
 		}
 
-		get_opcode(&stack, ln, tokenizer);
+		get_oper(&stack, ln, tokenizer);
 		ln++;
 	}
 
