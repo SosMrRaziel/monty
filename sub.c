@@ -1,8 +1,8 @@
 #include "monty.h"
 
 /**
- *  _sub - subtracts the top element from the second top element of the stack
- *
+ * sub - subtracts the top element of the stack
+ * from the second top element of the stack.
  *  @stack: a double pointer to the to of the stack
  *  @ln: the line number is monty file
  */
@@ -18,6 +18,6 @@ void sub(stack_t **stack, unsigned int ln)
 	}
 
 	result = ((*stack)->next->n) - ((*stack)->n);
-	pop(stack, ln);/*For top node*/
+	pop(stack, ln);
 	(*stack)->n = result;
 }

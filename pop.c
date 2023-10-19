@@ -1,10 +1,7 @@
 #include "monty.h"
 
-
-
-
 /**
- * _pop - removes the top element of the stack
+ * pop - removes the top element of the stack.
  *
  * @stack: a double pointer to the top of the stack
  * @ln: the line number in monty file

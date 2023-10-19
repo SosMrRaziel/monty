@@ -1,8 +1,8 @@
 #include "monty.h"
 
-
 /**
- * divide - Divides the second element of the stack by the top element
+ * divide - divides the second top element of the stack
+ * by the top element of the stack.
  * @stack: The stack
  * @ln: The line number
  *
@@ -12,30 +12,21 @@
 void divide(stack_t **stack, unsigned int ln)
 {
 	int result;
-	stack_t *tmp;
 
-	if (*stack == NULL || (*stack)->next == NULL)
+	if (!stack || !*stack || !((*stack)->next))
 	{
-		fprintf(stderr, "L%u: can't div, stack too short\n", ln);
-		free_db_list(*stack);
+		fprintf(stderr, "L%d: can't div, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
-
-	tmp = *stack;
-	*stack = (*stack)->next;
-	free(tmp);
-
-	if ((*stack)->n == 0)
+	if (((*stack)->n) == 0)
 	{
-		fprintf(stderr, "L%u: division by zero\n", ln);
-		free_db_list(*stack);
+		fprintf(stderr, "L%d: division by zero\n", ln);
 		exit(EXIT_FAILURE);
+		;
+		return;
 	}
 
-	result = (*stack)->n / (*stack)->prev->n;
+	result = ((*stack)->next->n) / ((*stack)->n);
+	pop(stack, ln);/*For top node*/
 	(*stack)->n = result;
-	tmp = (*stack)->prev;
-	(*stack)->prev = tmp->prev;
-	free(tmp);
 }
-
