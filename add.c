@@ -1,10 +1,12 @@
 #include "monty.h"
 
 /**
- * add - adds the top two elements of the stack
+ * add - Adds the top two elements of the stack.
  *
- * @stack: a double pointer to the top of stack
- * @ln: the line number of monty file
+ * @stack: A pointer to the head of the stack.
+ * @ln: The line number of the opcode being executed.
+ *
+ * Return: Nothing.
  */
 
 void add(stack_t **stack, unsigned int ln)

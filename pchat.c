@@ -40,7 +40,7 @@ void _pchar(stack_t **stack, unsigned int line_number)
  */
 
 
-void p_char(STACK_NODE_T **stack, unsigned int ln)
+void p_char(stack_t **stack, unsigned int ln)
 {
 	if (!stack || !(*stack))
 	{
