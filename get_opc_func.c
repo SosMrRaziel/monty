@@ -4,11 +4,11 @@
  * get_opcode_func - get the corresponding opcode
  *
  * @stack: a double pointer to the top of stack
- * @line_number: the line number in monty file
+ * @ln: the line number in monty file
  * @opc: the opcode in the file
  */
 
-void get_opcode(stack_t **stack, unsigned int line_number, char *opc)
+void get_opcode(stack_t **stack, unsigned int ln, char *opc)
 {
 	instruction_t operations[] = {
 		{"push", push},
@@ -33,13 +33,13 @@ void get_opcode(stack_t **stack, unsigned int line_number, char *opc)
 	{
 		if (strcmp(operations[i].opcode, opc) == 0)
 		{
-			operations[i].f(stack, line_number);
+			operations[i].f(stack, ln);
 			return;
 		}
 		i++;
 	}
 
-	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opc);
+	fprintf(stderr, "L%u: unknown instruction %s\n", ln, opc);
 	free_db_list(*stack);
 	exit(EXIT_FAILURE);
 }

@@ -4,42 +4,42 @@
  * _swap - swaps the top two elements of the stack
  *
  * @stack: a double pointer to the top of stack
- * @line_number: the line number in monty file
+ * @ln: the line number in monty file
  */
 
-void swap(stack_t **stack, unsigned int line_number)
+void swap(stack_t **stack, unsigned int ln)
 {
-	int temp;
+	int tmp;
 	stack_t **second;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", ln);
 		free_db_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 
 	second = &(*stack)->next; /* pointer to pointer to second node */
-	temp = (*stack)->n;
+	tmp = (*stack)->n;
 	(*stack)->n = (*second)->n;
-	(*second)->n = temp;
+	(*second)->n = tmp;
 }
 
 /**
  * _add - adds the top two elements of the stack
  *
  * @stack: a double pointer to the top of stack
- * @line_number: the line number of monty file
+ * @ln: the line number of monty file
  */
 
-void add(stack_t **stack, unsigned int line_number)
+void add(stack_t **stack, unsigned int ln)
 {
 	stack_t *top, *second;
 	int sum = 0;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't add, stack too short\n", ln);
 		free_db_list(*stack);
 		exit(EXIT_FAILURE);
 	}
@@ -56,29 +56,29 @@ void add(stack_t **stack, unsigned int line_number)
  * _nop - doesn’t do anything
  *
  * @stack: a double pointer to the top of the stack
- * @line_number: the line number in monty file
+ * @ln: the line number in monty file
  */
-void nop(stack_t **stack, unsigned int line_number)
+void nop(stack_t **stack, unsigned int ln)
 {
 	(void)stack;
-	(void)line_number;
+	(void)ln;
 }
 
 /**
  *  _sub - subtracts the top element from the second top element of the stack
  *
  *  @stack: a double pointer to the to of the stack
- *  @line_number: the line number is monty file
+ *  @ln: the line number is monty file
  */
 
-void sub(stack_t **stack, unsigned int line_number)
+void sub(stack_t **stack, unsigned int ln)
 {
 	int result;
 	stack_t *second;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't sub, stack too short\n", ln);
 		free_db_list(*stack);
 		exit(EXIT_FAILURE);
 	}
@@ -96,36 +96,36 @@ void sub(stack_t **stack, unsigned int line_number)
  * _div - divides the second top element of the stack by the top element
  *
  * @stack: a double pointer to the top of the stack
- * @line_number: the line number in monty file
+ * @ln: the line number in monty file
  */
 
-void divide(stack_t **stack, unsigned int line_number)
+void divide(stack_t **stack, unsigned int ln)
 {
 	int result;
-	stack_t *temp;
+	stack_t *tmp;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't div, stack too short\n", ln);
 		free_db_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 
-	temp = *stack;
+	tmp = *stack;
 	*stack = (*stack)->next;
-	free(temp);
+	free(tmp);
 
 	if ((*stack)->n == 0)
 	{
-		fprintf(stderr, "L%u: division by zero\n", line_number);
+		fprintf(stderr, "L%u: division by zero\n", ln);
 		free_db_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 
 	result = (*stack)->n / (*stack)->prev->n;
 	(*stack)->n = result;
-	temp = (*stack)->prev;
-	(*stack)->prev = temp->prev;
-	free(temp);
+	tmp = (*stack)->prev;
+	(*stack)->prev = tmp->prev;
+	free(tmp);
 }
 

@@ -4,28 +4,51 @@
  * _pchar - prints the char at the top of the stack
  *
  * @stack: a double pointer to the top of the stack
- * @line_number: the line number in monty file
+ * @ln: the line number in monty file
  */
 
 
-void p_char(STACK_NODE_T **stack, unsigned int line_number)
-{
-	int c;
+/*
 
+void _pchar(stack_t **stack, unsigned int line_number)
+{
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	c = (*stack)->n;
-	if (c < 0 || c > 127)
+	if ((*stack)->n < 0 || (*stack)->n > 127)
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
-		free_db_list(*stack);
+		free_dllist(*stack);
 		exit(EXIT_FAILURE);
 	}
 
-	putchar(c);
-	putchar('\n');
+	printf("%c\n", (*stack)->n);
+}
+
+
+*/
+
+
+
+
+
+
+void p_char(STACK_NODE_T **stack, unsigned int ln)
+{
+	if (!stack || !(*stack))
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", ln);
+		exit(EXIT_FAILURE);
+		return;
+	}
+	if (isascii((*stack)->n) == 0)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", ln);
+		exit(EXIT_FAILURE);
+		return;
+	}
+	printf("%c\n", (*stack)->n);
 }

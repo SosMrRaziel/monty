@@ -10,7 +10,7 @@ void execute(FILE *file_d)
 {
 	char *lineptr = NULL;
 	char *opc_token;
-	unsigned int line_number = 1;
+	unsigned int ln = 1;
 	size_t count = 0;
 	ssize_t read;
 
@@ -21,12 +21,12 @@ void execute(FILE *file_d)
 		opc_token = strtok(lineptr, " \n\t");
 		if (opc_token == NULL || opc_token[0] == '#')
 		{
-			line_number++;
+			ln++;
 			continue;
 		}
 
-		get_opcode(&stack, line_number, opc_token);
-		line_number++;
+		get_opcode(&stack, ln, opc_token);
+		ln++;
 	}
 
 	free_db_list(stack);

@@ -4,13 +4,13 @@
  * _pall - prints all the elements of the stack
  *
  * @stack: a double pointer to the top of stack
- * @line_number: the line number in monty file
+ * @ln: the line number in monty file
  */
 
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack, unsigned int ln)
 {
 	stack_t *temp = *stack;
-	(void)line_number;
+	(void)ln;
 
 	while (temp)
 	{

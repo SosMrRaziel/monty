@@ -4,10 +4,10 @@
  * _push - push a node to the top of the stack
  *
  * @stack: a double pointer to the top of stack
- * @line_number: the line number in monty file
+ * @ln: the line number in monty file
  */
 
-void push(stack_t **stack, unsigned int line_number)
+void push(stack_t **stack, unsigned int ln)
 {
 	stack_t *new;
 	int n;
@@ -15,7 +15,7 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (arg_token == NULL)
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", ln);
 		free_db_list(*stack);
 		exit(EXIT_FAILURE);
 	}
