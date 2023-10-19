@@ -11,9 +11,9 @@ void get_oper(stack_t **stack, unsigned int line_number, char *my_op)
 
     int i = 0;
 
-    while (oper[i].op_code)
+    while (oper[i].opcode)
     {
-        if (strcmp(oper[i].op_code, my_op) == 0)
+        if (strcmp(oper[i].opcode, my_op) == 0)
         {
             oper[i].f(stack, line_number);
             return;
