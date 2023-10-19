@@ -27,6 +27,6 @@ void divide(stack_t **stack, unsigned int ln)
 	}
 
 	result = ((*stack)->next->n) / ((*stack)->n);
-	pop(stack, ln);/*For top node*/
+	pop(stack, ln);
 	(*stack)->n = result;
 }

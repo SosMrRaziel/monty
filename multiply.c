@@ -9,7 +9,7 @@
 
 void multiply(stack_t **stack, unsigned int ln)
 {
-	stack_t *tmp;
+	int tmp;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
@@ -18,8 +18,7 @@ void multiply(stack_t **stack, unsigned int ln)
 		exit(EXIT_FAILURE);
 	}
 
-	tmp = *stack;
-	*stack = (*stack)->next;
-	(*stack)->n *= tmp->n;
-	free(tmp);
+	tmp = ((*stack)->next->n) * ((*stack)->n);
+	pop(stack, ln);
+	(*stack)->n = tmp;
 }
