@@ -1,14 +1,12 @@
 #ifndef MONTY_H
 #define MONTY_H
 #define _GNU_SOURCE
+
 #include <stddef.h> 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
-
-#include <stddef.h> 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -40,18 +38,10 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push(stack_t **stack, unsigned int line_cnt);
-void pall(stack_t **stack, unsigned int line_cnt);
-void pall(stack_t **stack, unsigned int line_number);
+void execute_func(FILE *my_file);
+void get_oper(stack_t **stack, unsigned int line_number, char *my_op);
+void _push(stack_t **stack, unsigned int line_number);
+void _pall(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t *stack);
 
-void op_code(stack_t **stack, char *str, unsigned int line_cnt);
-void error_usage(void);
-void file_error(char *argv);
-
-int isnumber(char *str);
-int check_digit(char *arg);
-
-stack_t *add_node(stack_t **head, const int n);
-size_t print_stack(const stack_t *head);
-
-#endif /* MONTY_H */
+#endif
